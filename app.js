@@ -39,14 +39,21 @@ app.get('/', (req, res) => {
 
 app.get('/nuevo', (req, res) => {
   res.send(`
-    <h1>Registrar Alumno</h1>
-    <form action="/nuevo" method="POST" enctype="multipart/form-data">
-      <input type="text" name="nombre" placeholder="Nombre" required><br><br>
-      <input type="text" name="grado" placeholder="Grado" required><br><br>
-      <input type="file" name="foto" accept="image/*" required><br><br>
-      <button type="submit">Guardar</button>
-    </form>
-    <br><a href="/">Volver</a>
+    <div style="background-color: #2563eb; color: white; padding: 15px; text-align: center; font-family: sans-serif;">
+      <h1>🏫 Sistema Escolar - Panel de Control</h1>
+      <p>Estado del servidor: <strong>En línea (Nodemon + Docker)</strong></p>
+    </div>
+    
+    <div style="padding: 20px; font-family: sans-serif;">
+      <h2>Registrar Alumno</h2>
+      <form action="/nuevo" method="POST" enctype="multipart/form-data">
+        <input type="text" name="nombre" placeholder="Nombre completo" required><br><br>
+        <input type="text" name="grado" placeholder="Grado / Sección" required><br><br>
+        <input type="file" name="foto" accept="image/*" required><br><br>
+        <button type="submit" style="background-color: #16a34a; color: white; border: none; padding: 10px 15px; cursor: pointer;">Guardar Alumno</button>
+      </form>
+      <br><a href="/">Volver al inicio</a>
+    </div>
   `);
 });
 

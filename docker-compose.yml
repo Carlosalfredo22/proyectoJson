@@ -5,9 +5,13 @@ services:
     build: .
     ports:
       - "3000:3000"
+    command: npm run dev 
+    # ¡NUEVO! Forzamos a que el sistema detecte los cambios en Windows
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     volumes:
-      # Sincroniza la carpeta de imágenes para que no se pierdan al actualizar
+      - .:/app
+      - /app/node_modules
       - ./public/uploads:/app/public/uploads
-      # Sincroniza la base de datos para que persista fuera del contenedor
       - ./database.sqlite:/app/database.sqlite
     restart: always
