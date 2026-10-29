@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sistema-escolar:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      # Sincroniza la carpeta de imágenes para que no se pierdan al actualizar
+      - ./public/uploads:/app/public/uploads
+      # Sincroniza la base de datos para que persista fuera del contenedor
+      - ./database.sqlite:/app/database.sqlite
+    restart: always
